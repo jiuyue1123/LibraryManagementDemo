@@ -1,0 +1,8 @@
+# LibraryManagementSystem缩写
+lms:
+  mysql:
+    host: wsl.local
+    port: 3306
+    database: lms_db
+    username: root
+    password: root

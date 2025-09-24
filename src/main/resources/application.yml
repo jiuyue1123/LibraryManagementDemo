@@ -1,0 +1,40 @@
+spring:
+  application:
+    name: LibraryManagementSystem
+
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://${lms.mysql.host}:${lms.mysql.port}/${lms.mysql.database}?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&useSSL=false&allowPublicKeyRetrieval=true
+    username: ${lms.mysql.username}
+    password: ${lms.mysql.password}
+  profiles:
+    active: test
+
+mybatis-plus:
+  mapper-locations: classpath*:mapper/**/*.xml
+  global-config:
+    db-config:
+      logic-delete-field: is_delete # ?????????(deleted????????)
+      logic-delete-value: 1 # ?????????????? 1
+      logic-not-delete-value: 0 # ?????????????? 0
+  configuration:
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+# springdoc-openapi????
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+  api-docs:
+    path: /v3/api-docs
+# knife4j???????????????
+knife4j:
+  enable: true
+  setting:
+    language: zh_cn
+    enable-swagger-models: true
+    swagger-model-name: models
+
+sa-token:
+  # jwt??
+  jwt-secret-key: asoiuho21b3kjbihas9d8h9s8d9h8s9d8h9s8d9h8s9d8h9s8d9h8s9d8h9s8d9
